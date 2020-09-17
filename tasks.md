@@ -12,6 +12,13 @@ If you complete the above then:
 Bonus points if you can populate existing record column values.
 aka fill the new column in existing rows.
 
+## Thursday Setup - Get this file in your local!
+
+`git remote` to view your remotes
+`git remote add upstream https://github.com/SummerOfCode2020/week-16-super-hero-app` to access the cohort repo as a remote
+`git remote -v` to confirm your remotes
+`git fetch` to get the latest
+
 ## task 02 - Thursday - REST Testing
 
 Objective: Practice your REST Testing skills.
