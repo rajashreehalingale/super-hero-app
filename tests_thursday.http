@@ -1,0 +1,29 @@
+
+### Hit the root of the site
+GET http://localhost:3009/
+
+
+### Git the special demo url for viewing how env vars work
+GET http://localhost:3009/debug-the-config
+
+### Add captain-marvel
+POST http://localhost:3009/
+content-type: application/json
+
+{
+    "name": "Captain Marvel",
+    "realname": "Carol Danvers",
+    "firstappearance": "tbd",
+    "slug": "captain-marvel"
+}
+
+### Add goose-the-cat
+
+
+### Filter by slug
+GET http://localhost:3009/goose-the-cat
+
+
+### Filter by id - Use an id value that exists in your databse. Use the '/' endpoint to view all data
+GET http://localhost:3009/1
+
