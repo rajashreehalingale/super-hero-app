@@ -1,7 +1,7 @@
-const models = require('../models')
+'use strict'
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: (queryInterface, Sequelize) => {
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
@@ -9,11 +9,7 @@ module.exports = {
       Example:
       return queryInterface.createTable('users', { id: Sequelize.INTEGER });
     */
-    await queryInterface.addColumn('heroes', 'snapped', { type: Sequelize.BOOLEAN, defaultValue: 0 })
-
-    return models.heroes.bulkCreate([
-      { slug: 'spider-man', snapped: true }
-    ], { updateOnDuplicate: ['snapped'] })
+    return queryInterface.addColumn('heroes', 'snapped', { type: Sequelize.BOOLEAN, defaultValue: 0 })
   },
 
   down: (queryInterface) => {

@@ -2,22 +2,22 @@ const heroes = [{
   name: 'Captain America',
   realname: 'Steve Rogers',
   firstappearance: 'Captain America Comics #1',
-  slug: 'captain-america'
+  slug: 'captain-america',
 }, {
   name: 'Spider-Man',
   realname: 'Peter Parker',
   firstappearance: 'Amazing Fantasy #15',
-  slug: 'spider-man'
+  slug: 'spider-man',
 }, {
   name: 'Iron Man',
   realname: 'Tony Stark',
   firstappearance: 'Tales of Suspense #39',
-  slug: 'iron-man'
+  slug: 'iron-man',
 }, {
   name: 'Thor',
   realname: 'Thor Odinson',
   firstappearance: 'Journey into Mystery #83',
-  slug: 'thor'
+  slug: 'thor',
 }]
 
 module.exports = heroes

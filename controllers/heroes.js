@@ -1,16 +1,16 @@
-const models = require('../models')
+import models from '../models'
 
-const getAllHeroes = async (request, response) => {
+export const getAllHeroes = async (request, response) => {
   const heroes = await models.heroes.findAll()
 
   return response.send(heroes)
 }
 
-const getHeroBySlug = async (request, response) => {
+export const getHeroBySlug = async (request, response) => {
   try {
     const { slug } = request.params
 
-    const foundHero = await models.heroes.findOne({ where: { slug } })
+    const foundHero = await models.heroes.findAll({ where: { slug } })
 
     return foundHero
       ? response.send(foundHero)
@@ -20,7 +20,7 @@ const getHeroBySlug = async (request, response) => {
   }
 }
 
-const saveNewHero = async (request, response) => {
+export const saveNewHero = async (request, response) => {
   const { name, realname, firstappearance, slug } = request.body
 
   if (!name || !realname || !firstappearance || !slug) {
@@ -31,5 +31,3 @@ const saveNewHero = async (request, response) => {
 
   return response.status(201).send(newHero)
 }
-
-module.exports = { getAllHeroes, getHeroBySlug, saveNewHero }

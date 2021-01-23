@@ -1,32 +1,50 @@
 {
   "name": "super-hero-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "env-cmd nodemon index.js",
-    "dev:migrate": "env-cmd sequelize db:migrate --env development --config ./config/sequelize.js --debug",
+    "dev": "./node_modules/.bin/concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "./node_modules/.bin/env-cmd ./node_modules/.bin/nodemon server.js",
+    "dev:client": "./node_modules/.bin/webpack --progress --config webpack.dev.js",
+    "lint": "./node_modules/.bin/eslint --format codeframe --ext jsx",
+    "dev:migrate": "./node_modules/.bin/env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./config/sequelize.js",
     "dev:migrate:undo": "env-cmd sequelize db:migrate:undo --env development --config ./config/sequelize.js --debug",
-    "lint": "eslint --format codeframe .",
     "lint:fix": "eslint --fix --format codeframe .",
     "test": "env-cmd mocha tests/**/*.test.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/preset-react": "^7.12.10",
+    "D": "^1.0.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "mysql2": "^2.1.0",
-    "sequelize": "^5.21.5",
+    "mysql2": "^2.2.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sequelize": "^5.22.3",
     "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
     "chai": "^4.2.0",
+    "concurrently": "^5.3.0",
     "env-cmd": "^10.1.0",
     "eslint": "^6.8.0",
-    "mocha": "^7.1.1",
-    "nodemon": "^2.0.2",
-    "sinon": "^9.0.1",
-    "sinon-chai": "^3.5.0"
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "mocha": "^7.2.0",
+    "nodemon": "^2.0.7",
+    "sinon": "^9.2.1",
+    "sinon-chai": "^3.5.0",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1"
+  },
+  "directories": {
+    "test": "tests"
   }
 }
